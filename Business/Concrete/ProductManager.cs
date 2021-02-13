@@ -21,6 +21,7 @@ namespace Business.Concrete
             _productDal = productDal;
         }
 
+
         public IResult Add(Product product)
         {
             //business codes
@@ -37,9 +38,9 @@ namespace Business.Concrete
 
         public IDataResult<List<Product>> GetAll()
         {
-            if (DateTime.Now.Hour==22)
+            if (DateTime.Now.Hour==23)
             {
-                return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
+               return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
             }
 
 
@@ -66,7 +67,7 @@ namespace Business.Concrete
         public IDataResult<List<ProductDetailDto>> GetProductDetails()
         {
 
-            if (DateTime.Now.Hour == 0)
+            if (DateTime.Now.Hour == 23)
             {
                 return new ErrorDataResult<List<ProductDetailDto>>(Messages.MaintenanceTime);
             }
